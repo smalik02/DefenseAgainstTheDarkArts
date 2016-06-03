@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+<link rel="stylesheet" href="../stylesheets/style.css" />
+<title>COMP 116: Introduction to Computer Security - Cryptography</title>
+</head>
+
+<body>
+<h1>COMP 116: Introduction to Computer Security</h1>
+<h2>Cryptography</h2>
+
+<h3>Definitions</h3>
+<ul>
+<li><span class="def">Cryptography</span> - The process of communicating secretly through the use of cipher</li>
+<li><span class="def">Cryptanalysis</span> - The process of cracking or deciphering; code breaking</li>
+<li><span class="def">Cryptology</span> The study of cryptography or cryptanalysis</li>
+<li>History goes back to wartimes (e.g., Caesar Cipher, Enigma)</li>
+<li><span class="def">Cleartext / plaintext</span> - duh!</li>
+<li><span class="def">Cipher</span> - An <span class="stress">algorithm</span> to perform encryption and/or decryption</li>
+<li><span class="def">Cryptosystem</span> - Suite of algorithms to perform encryption and/or decryption</li>
+</ul>
+
+<h3>Security of a Cryptosystem (thanks Giovanni)</h3>
+<ul>
+<li>The only perfectly secure algorithm is the <span class="def">one-time pad</span></li>
+<li>Is any crypto algorithm perfectly secure?</li>
+<li>Tradeoff 1: the cost of breaking a cipher exceeds the value of the encrypted information</li>
+<li>Tradeoff 2: the time required to break the cipher exceeds the useful lifetime of the information</li>
+<li>Very difficult to estimate cost and time required to break a cipher</li>
+<li>There is always brute force</li>
+<li>...and then there is plain-old stealing or just asking for it</li>
+</ul>
+
+<h3>About the One-Time Pad</h3>
+<ul>
+<li>Invented in 1917</li>
+<li>Impossible to crack</li>
+<li>The secret key (the cipher), with random data, must be the same length as the plaintext</li>
+<li>Assume "A" = 0, "B" = 1, "C" = 2, etc.</li>
+<li>Simple to use: just XOR, modular addition</li>
+<li>Encryption: addition, mod 26</li>
+<li>Decryption: subtraction, if result is negative, add 26 and mod 26</li>
+<li>Rather impractical: the weakest link</li>
+</ul>
+
+<h3>Algorithms</h3>
+<ul>
+<li>Symmetric - single key for encryption and decryption
+<ul>
+<li>DES</li>
+<li>AES</li>
+<li>RC4</li>
+<li><code>crypt()</code></li>
+</ul>
+</li>
+<li>Asymmetric a.k.a., public key - uses two different keys: one public (for encryption) and one private (for decryption)
+<ul>
+<li>Diffie-Hellman</li>
+<li>RSA</li>
+</ul>
+</li>
+<li>Hash functions - one way encryption, no decryption thus no secret key
+<ul>
+<li>MD5</li>
+<li>SHA1</li>
+</ul>
+</li>
+<li>Random number generation</li>
+</ul>
+
+<h3>Symmetric Algorithm</h3>
+<ul>
+<li>See One-Time Pad</li>
+<li>Let K = secret key, C = Ciphertext, and P = Plaintext</li>
+<li>C = Ek(P)</li>
+<li>P = Dk(C)</li>
+<li>Strengths:
+<ul>
+<li>Modified key K will result in garbage plaintext in decryption</li>
+</ul>
+</li>
+<li>Weaknesses:
+<ul>
+<li>Those who know K can participate in communications (eavesdropping)</li>
+<li>Impersonation attack if attacker knows K</li>
+<li>Not good for authenticity</li>
+</ul>
+</li>
+</ul>
+
+<h3>Hash Functions</h3>
+<ul>
+<li>Maps a variable length string of data to produce a fixed-length output in deterministic, <span class="stress">public</span>, and random manner</li>
+<li>No secret key</li>
+<li>Properties
+<ul>
+<li>One-way: cannot decrypt</li>
+<li>No collisions: two unique strings cannot produce the same result</li>
+<li>Randomness</li>
+<li>Unfeasible to produce the whole hash space (pre-image resistance)</li>
+<li>Given a hash result, unfeasible to produce the string</li>
+</ul>
+</li>
+<li>Strengths:
+<ul>
+<li>Verifying integrity</li>
+</ul>
+</li>
+<li>Weaknesses:
+<ul>
+<li>MD5 (128-bit hash value) is broken --not collision-resistant (two researchers created two files that shared the same hash value).  Read:
+<ul>
+<li><a href="http://www.cs.colorado.edu/~jrblack/papers/md5e-full.pdf" target="_blank">http://www.cs.colorado.edu/~jrblack/papers/md5e-full.pdf</a></li>
+<li><a href="http://eprint.iacr.org/2004/199.pdf" target="_blank">http://eprint.iacr.org/2004/199.pdf</a></li>
+</ul>
+</li>
+<li>SHA1 (160-bit hash value) is broken: <a href="http://www.schneier.com/blog/archives/2005/02/sha1_broken.html" target="_blank">http://www.schneier.com/blog/archives/2005/02/sha1_broken.html</a>, <a href="http://www.schneier.com/blog/archives/2005/02/cryptanalysis_o.html" target="_blank">http://www.schneier.com/blog/archives/2005/02/cryptanalysis_o.html</a></li>
+</ul>
+</li>
+<li>Applications:
+<ul>
+<li>Password storage</li>
+<li>Checksum of software packages</li>
+<li>Digital signatures</li>
+<li>Commitment (e.g., GitHub)</li>
+</ul>
+</li>
+</ul>
+
+<h3>Good read: Snake oil <a href="http://www.schneier.com/crypto-gram-9902.html#snakeoil" target="_blank">http://www.schneier.com/crypto-gram-9902.html#snakeoil</a></h3>
+
+<h3>Application: Password Cracking</h3>
+<p><img src="password_attack.jpg" alt="Password cracking" /></p>
+<ul>
+<li>Two files of interest on a typical Linux box:
+<ul>
+<li><code>/etc/passwd</code> - Contains users' information but no encrypted password; required for login</li>
+<li><code>/etc/shadow</code> - Contains users' passwords (encrypted) with additional details relating to the password (see <a href="http://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html" target="_blank">http://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html</a> for more details)</li>
+</ul>
+</li>
+<li>Methods:
+<ul>
+<li>Brute-force</li>
+<li>Wordlists</li>
+<li>Rainbow tables.  See <a href="http://project-rainbowcrack.com/" target="_blank">http://project-rainbowcrack.com/</a> for example.</li>
+</ul>
+</li>
+</ul>
+
+<h3>Key Distribution Center (KDC)</h3>
+<ul>
+<li>Alice and Bob share secret keys with KDC</li>
+<li>If Alice wants to talk to Bob securely, Alice tells KDC that she wants to talk to Bob</li>
+<li>KDC generates a session (or temporary) key to Alice and Bob for communications</li>
+<li>Strengths:
+<ul>
+<li>Discrete number of keys</li>
+<li>Temporary key is limited to a session</li>
+</ul>
+</li>
+<li>Weaknesses:
+<ul>
+<li>Single point of failure: the KDC</li>
+<li>KDC has to be available</li>
+</ul>
+</li>
+</ul>
+
+<h3>Asymmetric Cryptography</h3>
+<ul>
+<li>Alice and Bob agree on a public-key cryptosystem</li>
+<li>Alice and Bob have their own public and private keys</li>
+<li>Alice gives Bob her public key</li>
+<li>Bob encrypts message with Alice's public key</li>
+<li>Alice decrypts the message with her private key</li>
+<li>Even better: key signing (encrypt message with own private key)</li>
+<li>Strengths:
+<ul>
+<li>Public key can be distributed any way possible</li>
+<li>Confidentiality: only holder of private key can decrypt message</li>
+<li>Integrity: any modification of the message would be revealed when decrypting</li>
+<li>Non repudiation: Bob can prove to a third party that Alice is the originator of the message</li>
+</ul>
+</li>
+<li>Weakness:
+<ul>
+<li>No authentication: anyone can encrypt a message given a public key</li>
+<li>MITM</li>
+</ul>
+</li>
+<li>Arguably the most popular algorithm: RSA. Walkthough: <a href="http://www.di-mgt.com.au/rsa_alg.html" target="_blank">http://www.di-mgt.com.au/rsa_alg.html</a></li>
+</ul>
+
+<h3>Public Key Certificates</h3>
+<ul>
+<li>Used to associate an identity (e.g., Alice and Bob) with a public key</li>
+<li>The association is guaranteed by a trusted third party, the Certification Authority (CA)</li>
+<li>The CA owns a public key and a private key</li>
+<li>The CA creates a self-signed certificate that is distributed through many channels</li>
+<li>The CA signs certificates containing identity and corresponding public key after having verified the identity of the requester</li>
+<li>Certificates are made available in public databases or exchanged online</li>
+<li>Communications:
+<ul>
+<li>Both Alice and Bob have the CA self-signed certificate</li>
+<li>When Alice wants to send a message to Bob:
+<ul>
+<li>She retrieves Bob's certificate from a public database</li>
+<li>She verifies the CA's signature on Bob's certificate</li>
+<li>She extracts Bob's public key</li>
+<li>She uses the Bob's public key and her own secret key to encrypt the message</li>
+</ul>
+</li>
+<li>When Bob receives the message:
+<ul>
+<li>He retrieves Alice's certificate from a public database</li>
+<li>He verifies the CA's signature on Alice's certificate</li>
+<li>He extracts Alice's public key</li>
+<li>He uses his own private key to decrypt the message and Alice's public key to verify the signature</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

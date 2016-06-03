@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+<link rel="stylesheet" href="stylesheets/style.css" />
+<title>COMP 116: Introduction to Computer Security</title>
+</head>
+
+<body>
+<h1>COMP 116: Introduction to Computer Security</h1>
+<h2>Tufts University Department of Computer Science, Fall 2015</h2>
+
+<h2>Instructor</h2>
+<ul>
+<li>Ming Chow, <a href="mailto:mchow@cs.tufts.edu">mchow@cs.tufts.edu</a></li>
+<li>Office Hours: Wednesdays from 1 - 4 PM, or by appointment, "in my usual spot".  Hours are good until the last day of classes, December 11th.</li>
+<li>Please send all class questions <a href="https://piazza.com/tufts/fall2015/comp116/home" target="_blank">via Piazza</a>. DO NOT E-MAIL ME! Sign up at <a href="https://piazza.com/tufts/fall2015/comp116" target="_blank">https://piazza.com/tufts/fall2015/comp116</a>.</li>
+<li>For emergencies or private matters, please e-mail or see me directly.</li>
+</ul>
+
+<h2>Class Time</h2>
+<ul>
+<li>Tuesdays and Thursdays, 4:30 - 5:45 PM in Nelson Auditorium, Anderson Hall</li>
+</ul>
+
+<h2>Teaching Assistant</h2>
+<ul>
+<li>None</li>
+</ul>
+
+<h2>Prerequisites</h2>
+<ul>
+<li>COMP 15.  Strongly recommended that you have taken COMP 40. <span class="note">Please disregard prerequisites listed in the University's bulletin as they are incorrect!</span></li>
+</ul>
+
+<h2>Textbook</h2>
+<ul>
+<li>None</li>
+<li>Here are some very good resources about security, in case you're interested:
+<ul>
+<li><a href="http://www.cl.cam.ac.uk/~rja14/book.html" target="_blank"><span class="title">Security Engineering</span></a> by Ross J. Anderson</li>
+<li><a href="http://www.amazon.com/Applied-Cryptography-Protocols-Algorithms-Source/dp/0471117099/" target="_blank"><span class="title">Applied Cryptography</span></a> by Bruce Schneier</li>
+<li><a href="http://www.amazon.com/The-Art-Deception-Controlling-Security/dp/076454280X/" target="_blank"><span class="title">The Art of Deception: Controlling the Human Element of Security</span></a> by Kevin Mitnick</li>
+<li><a href="http://www.amazon.com/Building-Secure-Software-Addison-Wesley-Professional/dp/0321774957/" target="_blank"><span class="title">Building Secure Software</span></a> by John Viega and Gary McGraw</li>
+<li><a href="http://www.amazon.com/Software-Security-Building-In/dp/0321356705/" target="_blank"><span class="title">Software Security: Building Security In</span></a> by Gary McGraw</li>
+<li><a href="http://www.phrack.org/" target="_blank">Phrack Magazine</a></li>
+</ul>
+</li>
+</ul>
+
+<h2>Software Requirements (on your personal computer)</h2>
+<ul>
+<li>Git</li>
+<li>A copy of the Kali Linux live-CD ISO: <a href="http://www.kali.org/downloads/" target="_blank">Download at http://www.kali.org/downloads/</a></li>
+<li>One of the following to run the Kali Linux live-CD ISO:
+<ul>
+  <li><a href="http://vmap-tufts.onthehub.com/" target="_blank">VMware Fusion for Mac OS X or VMware Workstation for Windows or Linux (free one year license via Tufts CS)</a></li>
+  <li><a href="http://wiki.qemu.org/Main_Page" target="_blank">QEMU (free)</a></li>
+  <li><a href="https://www.virtualbox.org/" target="_blank">Virtual Box (free)</a></li>
+</ul>
+</li>
+</ul>
+
+<h2>Tools</h2>
+<ul>
+<li><a href="https://analysiscenter.veracode.com" target="_blank">Veracode Analysis Center</a></li>
+</ul>
+
+<h2>Assessment</h2>
+<ul>
+<li>Individual assignments / labs / problem sets / CTF (50%)</li>
+<li>Final project (15%)</li>
+<li>3 quizzes (25%)</li>
+<li>Subjective factors including attendance, class participation, and posting to Piazza (10%)</li>
+</ul>
+
+<h2>Syllabus</h2>
+
+<p class="note">Schedule is subject to change.</p>
+
+<table>
+<tr>
+<th>Date</th>
+<th>Agenda</th>
+<th>Deliverables</th>
+</tr>
+<tr>
+<td>Tuesday, September 8th</td>
+<td>
+	<ul>
+		<li><a href="notes/intro.html">Course Introduction</a></li>
+		<li>Watch: <a href="https://vimeo.com/135347162" target="_blank">James Mickens' "Not Even Close: The State of Computer Security"</a></li>
+		<li>Watch: <a href="https://www.youtube.com/watch?v=nT-TGvYOBpI" target="_blank">Dr. Dan Geer's Black Hat 2014 Keynote</a>. The text of his talk: <a href="http://geer.tinho.net/geer.blackhat.6viii14.txt" target="_blank">http://geer.tinho.net/geer.blackhat.6viii14.txt</a></li>
+	</ul>
+</td>
+<td>
+	<ul>
+		<li><a href="https://docs.google.com/forms/d/1eLlXQHFolfVaL2nMV1FRDfv1p9wLQnmmrd0rRH265iA/viewform">Lab 0: Course Roster</a>. <span class="note">PLEASE COMPLETE ASAP! This lab is worth 1 point.</span></li>
+		<li><a href="https://piazza.com/tufts/fall2015/comp116" target="_blank">Please sign up for our Piazza group</a></li>
+		<li><a href="https://docs.google.com/forms/d/16okDXH0Zji7EcKgRKOeLUUPN5iP5dplGGps1p8wXnpY/viewform">Lab 1: Working with a Hypervisor and a Virtual Machine</a></li>
+		<li><a href="https://docs.google.com/forms/d/19giAIe-SWjbXl4BDTn70hi8tHqS2aUhcOJTLiqOzCSk/viewform">Sign up for the Fall 2015 Reverse Career Fair</a> (not mandatory)</li>
+	</ul>
+</td>
+</tr>
+<tr>
+<td>Thursday, September 10th</td>
+<td>
+	<ul>
+		<li><a href="notes/badguy.html">Social Engineering</a></li>
+		<li>Read: <a href="https://adainitiative.org/2012/08/defcon-why-conference-harassment-matters/" target="_blank">DEF CON: Why Conference Harassment Matters</a></li>
+		<li>Read: <a href="https://www.schneier.com/blog/archives/2012/08/sexual_harassme.html" target="_blank">Sexual Harassment at DefCon (and Other Hacker Cons) by Bruce Schneier</a></li>
+		<li>Read: <a href="https://www.defcon.org/html/links/dc-code-of-conduct.html" target="_blank">DEF CON Conference Code of Conduct</a></li>
+	</ul>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Tuesday, September 15th</td>
+<td>
+	<ul>
+		<li><a href="notes/networking.html">Networking</a></li>
+		<li>Read: <a href="http://mkcohen.com/how-the-web-works-in-one-easy-lesson" target="_blank">How The Web Works --In One Easy Lesson (mkcohen.com)</a></li>
+		<li><a href="http://cdn.shopify.com/s/files/1/0177/9886/files/2013_WOS_ToolsAndTechniques.pdf?47" target="_blank">Tools and Techniques to Succeed at the Wall of Sheep (on wallofsheep.com)</a></li>
+		<li>Read: <a href="http://www.buzzfeed.com/justinesharrock/welcome-to-def-con-youve-already-been-hacked" target="_blank">Welcome To Def Con — You’ve Already Been Hacked (on buzzfeed.com)</a></li>
+	</ul>
+</td>
+<td>
+	<ul>
+		<li><a href="assignments/a1.html">Assignment 1: Packet Sleuth. Due on Wednesday, September 23rd</a></li>
+		<li>Career Panel Hosted by Tufts CS from 7:30 - 9 PM in Cabot Auditorium. <span class="note">You will receive 2 points for attending this event.  Attendance will be taken.</span></li>
+	</ul>
+</td>
+</tr>
+<tr>
+<td>Thursday, September 17th</td>
+<td>
+	<ul>
+		<li><a href="notes/networking.html">Attacking Networks: Sniffing</a></li>
+		<li>Read: <a href="http://www.irongeek.com/i.php?page=security/arpspoof" target="_blank">The Basics of Arpspoofing/Arppoisoning (Irongeek.com)</a></li>
+		<li>Read: <a href="notes/2600vol25no2.pdf">Fun With Network Friends (2600 Magazine, Summer 2008)</a></li>
+	</ul>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Tuesday, September 22nd</td>
+<td>
+	<ul>
+		<li><a href="notes/networking.html">Attacking Networks: Scanning, Part I</a></li>
+		<li>Read: <a href="http://blog.erratasec.com/2013/09/masscan-entire-internet-in-3-minutes.html" target="_blank">Masscan: the entire Internet in 3 minutes (Errata Security)</a></li>
+		<li>Read: <a href="http://blog.erratasec.com/2013/09/we-scanned-internet-for-port-22.html" target="_blank">We scanned the Internet for port 22 (Errata Security)</a></li>
+		<li>Read: <a href="https://nakedsecurity.sophos.com/2014/08/15/thousands-of-computers-open-to-eavesdropping-and-hijacking/" target="_blank">Thousands of computers open to eavesdropping and hijacking (Sophos)</a></li>
+		<li>Cheat Sheet:<a href="http://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf" target="_blank">Netcat Cheat Sheet (PDF; from SANS Institute)</a></li>
+		<li>Read: <a href="http://illmatics.com/Remote%20Car%20Hacking.pdf" target="_blank">Remote Exploitation of an Unaltered Passenger Vehicle (PDF) by Charlie Miller and Chris Valasek</a></li>
+	</ul>
+</td>
+<td><a href="https://docs.google.com/forms/d/18QTK-bGnlLYnQNYM12pn7QI-GRYIcX5UU7Kp9utHaH0/viewform">Lab: Scanning</a></td>
+</tr>
+<tr>
+<td>Thursday, September 24th</td>
+<td>NO CLASS</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Tuesday, September 29th</td>
+<td>
+	<ul>
+		<li><a href="notes/networking.html">Attacking Networks: Scanning, Part II</a></li>
+		<li>Read: <a href="http://nmap.org/book/man-port-scanning-techniques.html" target="_blank">Port Scanning Techniques (Chapter 15. Nmap Reference Guide)</a></li>
+		<li>Read: <a href="https://nmap.org/book/man-bypass-firewalls-ids.html" target="_blank">Firewall/IDS Evasion and Spoofing (Chapter 15. Nmap Reference Guide)</a></li>
+		<li>Read: <a href="https://highon.coffee/docs/nmap/" target="_blank">Nmap Examples</a></li>
+	</ul>
+</td>
+<td>
+	<ul>
+		<li>Tufts Career Fair on Wednesday, September 30th from 11:30 AM - 2:30 PM at Gantcher</li>
+		<li>Tufts CS Reverse Career Fair on Wednesday, September 30th from 2:45 - 4 PM in Halligan 102</li>
+	</ul>
+</td>
+</tr>
+<tr>
+<td>Thursday, October 1st</td>
+<td>Vulnerabilities</td>
+<td><a href="assignments/alarm.html">Assignment 2: The Incident Alarm. Due on Tuesday, October 13th</a></td>
+</tr>
+<tr>
+<td>Tuesday, October 6th</td>
+<td rowspan="3">
+	<ul>
+		<li><a href="notes/cryptography.html">Cryptography</a></li>
+		<li><a href="https://crackstation.net/hashing-security.htm" target="_blank">Salted Password Hashing - Doing it Right</a></li>
+	</ul>
+</td>
+<td>
+	<ul>
+		<li><a href="assignments/finalproject.html">Final Project. Absolute Deadline: Tuesday, December 15th at 6 PM</a></li>
+		<li><a href="assignments/q1_practice.pdf">Practice Quiz 1 (PDF)</a></li>
+	</ul>
+</td>
+</tr>
+<tr>
+<td>Thursday, October 8th</td>
+<td><a href="assignments/crackmeifyoucan.html">Lab: Crack Me If You Can - The 2015 Password Cracking Contest. Deadline: Thursday, October 29th</a></td>
+</tr>
+<tr>
+<td>Tuesday, October 13th</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Thursday, October 15th</td>
+<td>
+	<ul>
+		<li>Web Security, Part I</li>
+		<li>Read: <a href="https://www.owasp.org/index.php/Top_10_2013-Release_Notes" target="blank">OWASP Top 10</a></li>
+		<li>Read: <a href="https://www.sans.org/top25-software-errors/" target="blank">CWE/SANS TOP 25 Most Dangerous Software Errors</a></li>
+		<li>Watch: <a href="http://www.veracode.com/security/xss" target="_blank">Cross-Site Scripting (XSS) Tutorial by Chris Eng (Veracode)</a></li>
+		<li>Tool: <a href="https://portswigger.net/burp/" target="_blank">Burp Suite (requires Java). Burp is included in Kali.</a></li>
+	</ul>
+</td>
+<td>Quiz 1</td>
+</tr>
+<tr>
+<td>Tuesday, October 20th</td>
+<td><a href="notes/ndavis-20151020.pdf">Guest Speaker: Nick Davis (E'14, Course Alumnus Fall 2013), Software Engineer at Rapid7</a></td>
+<td><a href="assignments/ctf.html">Assignment 3: Capture The Flags. To Be Played on Thursday, November 5th in Halligan 102</a></td>
+</tr>
+<tr>
+<td>Thursday, October 22nd</td>
+<td>
+	<ul>
+		<li>Guest Speaker: Nabil Hannan, Managing Principal (Northeast USA &amp; Canada) at Cigital, Inc.</li>
+		<li><a href="https://www.bsimm.com/" target="_blank">BSIMM: Building Security In Maturity Model</a></li>
+		<li>Read: <a href="http://www.forbes.com/sites/robertvamosi/2015/10/20/measuring-secure-software-maturity/" target="_blank">Measuring Secure Software Maturity (in Forbes)</a></li>
+	</ul>
+</td>
+<td>
+	<ul>
+		<li>Tufts Hackathon: Friday, October 23rd - Saturday, October 24th</li>
+	</ul>
+</td>
+</tr>
+<tr>
+<td>Tuesday, October 27th</td>
+<td>
+	<ul>
+		<li>Is MitM a Good Thing?  Auditing Mobile Apps</li>
+		<li>Web Security, Part II: SQL Injection</li>
+		<li>Tutorial and Reference: <a href="http://sqlzoo.net/" target="_blank">SQLZoo</a></li>
+		<li>Read: <a href="https://www.acunetix.com/websitesecurity/blind-sql-injection/" target="_blank">Blind SQL Injection: What is it? (Acuenix)</a></li>
+		<li>Read: <a href="https://www.veracode.com/blog/2012/02/adios-say-goodbye-to-nosy-iphone-apps" target="_blank">AdiOS: Say Goodbye to Nosy iPhone Apps (Veracode)</a></li>
+	</ul>
+</td> 
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Thursday, October 29th</td>
+<td><a href="notes/schristeycoley-20151029.pdf">Guest Speaker: Steve Christey Coley, The MITRE Corporation</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Tuesday, November 3rd</td>
+<td>
+	<ul>
+    	<li>Web Security, Part III: Traversal, Cross-Site Request Forgery (XSRF), Cookie Tampering, Remote Code Execution</li>
+	    <li>Read: <a href="https://www.veracode.com/security/csrf" target="_blank">Cross-Site Request Forgery Guide: Learn All About CSRF Attacks and CSRF Protection (Veracode)</a></li>
+	    <li>Read: <a href="http://blog.codinghorror.com/cross-site-request-forgeries-and-you/" target="_blank">Cross-Site Request Forgeries and You (Coding Horror)</a></li>
+	    <li>Read: <a href="http://www.acunetix.com/websitesecurity/csrf-attacks/" target="_blank">CSRF Attacks – What They Are and How to Defend Against Them (Acunetix)</a></li>
+	    <li>Read: <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" target="_blank">Cross-Site Request Forgery (OWASP)</a></li>
+	    <li>Read: <a href="http://www.cs.utexas.edu/~shmat/courses/cs378_spring09/zeller.pdf">Cross-Site Request Forgeries: Exploitation and Prevention (Zeller, Felten)</a></li>
+	</ul>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Thursday, November, November, the Fifth of November</td>
+<td colspan="2"><a href="assignments/ctf.html">The Annual CTF Game.  Class will be in Halligan 102.</a></td>
+</tr>
+<tr>
+<td>Thursday, November 12th</td>
+<td>
+	<ul>
+		<li>Static and Dynamic Analysis</li>
+		<li>Read: <a href="notes/static-binary-analysis-wysopal-tufts-comp-116.pdf">Binary Static Analysis (Chris Wysopal's talk to this class back in spring 2012)</a></li>
+    	<li>Read: <a href="notes/predicting_the_future_veracode.pdf">We See the Future and It's Not Pretty: Predicting the Future Using Vulnerability Data (Chris Wysopal's talk to this class back in fall 2013)</a></li>
+    	<li>Read: <a href="http://www.washingtonpost.com/sf/business/2015/06/22/net-of-insecurity-part-3/" target="_blank">A Disaster Foretold --and Ignored (Washington Post)</a></li>
+    </ul>
+</td>
+<td>
+	<ul>
+		<li><a href="assignments/techriskanalysis.html">Assignment 4: Technical Risk Analysis. Due on Thursday, November 19th</a></li>
+		<li><a href="assignments/q2_practice.pdf">Practice Quiz 2 (PDF)</a></li>
+	</ul>
+</td>
+</tr>
+<tr>
+<td>Tuesday, November 17th</td>
+<td>
+	<ul>
+		<li><a href="notes/malware.html">Malware</a></li>
+		<li>Read: <a href="http://spaf.cerias.purdue.edu/tech-reps/823.pdf" target="_blank">The Internet Worm Program: An Analysis by Gene Spafford</a></li>
+		<li>Read: <a href="http://ntsecurity.nu/toolbox/tini/" target="_blank"><code>tini.exe</code> (via ntsecurity)</a></li>
+		<li>Read: <a href="http://securityninja.blogspot.com/2008/06/bypass-modern-anti-virus-with-8-year.html" target="_blank">Bypass modern anti virus with an 8 year old backdoor</a></li>
+	</ul>
+</td>
+<td>Quiz 2</td>
+</tr>
+<tr>
+<td>Thursday, November 19th</td>
+<td>
+	<ul>
+		<li><a href="notes/forensics_ih.html">Forensics, Anti-Forensics, Incident Handling</a></li>
+		<li>Read: <a href="https://zeltser.com/digital-forensics-and-incident-response-disciplines/" target="_blank">Making Sense of Digital Forensics and Incident Response Disciplines by Lenny Zeltser</a></li>
+		<li>My Old Presentation: <a href="https://mchow01.github.io/docs/htcia-ne_20090922-mchow.pdf">Investigations and Incident Response Using BackTrack</a></li>
+	</ul>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Tuesday, November 24th</td>
+<td>&nbsp;</td>
+<td><a href="assignments/forensics.html">Assignment 5: Forensics. Due on Tuesday, December 8th</a></td>
+</tr>
+<tr>
+<td>Tuesday, December 1st</td>
+<td>
+	<ul>
+		<li><a href="https://github.com/tuftsdev/DefenseOfTheDarkArts/blob/gh-pages/notes/outlines.md#tuesday-december-1st-anti-forensics-privacy">Anti-Forensics, Privacy</a></li>
+		<li>Read: <a href="notes/usenix04_summaries.pdf">Panel: The Politicization of Security; Panel: Wireless Devices and Consumer Privacy (From USENIX '04)</a></li>
+		<li>Watch: <a href="https://www.aclu.org/ordering-pizza" target="_blank">Ordering Pizza (ACLU)</a></li>
+		<li>Read: <a href="http://aclunc-tech.org/files/privacy_free_speech_good_for_business.pdf" target="_blank">Privacy and Free Speech: It's Good For Business (ACLU --thanks to Nicole Ozer)</a></li>
+		<li>Read: <a href="http://bostinno.streetwise.co/2012/03/26/boston-loves-one-night-stands-uber-data-reveals-the-hub-has-the-highest-number-of-walks-of-shame/" target="_blank">Boston Loves One-Night Stands: Uber Data Reveals the Hub Has the Highest Number of Walks of Shame (BostInno)</a></li>
+		<li>Read: <a href="http://arstechnica.com/business/2009/11/creepy-insurance-company-pulls-coverage-due-to-facebook-pics/" target="_blank">Creepy insurance company pulls coverage due to Facebook pics (ArsTechnica)</a></li>
+	</ul>
+</td>
+<td><a href="assignments/q3_practice.pdf">Practice Quiz 3 (PDF)</a></td>
+</tr>
+<tr>
+<td>Thursday, December 3rd</td>
+<td>
+	<ul>
+		<li><a href="https://mchow01.github.io/docs/MSS13_Session11.pdf">Looking Ahead: Mobile Security</a></li>
+		<li><a href="https://mchow01.github.io/docs/AbusingMobileGames.pdf">Abusing Mobile Games (from 2014 BSides Boston Security Conference)</a></li>
+	</ul>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Tuesday, December 8th</td>
+<td>Looking Ahead: Internet of Things</td>
+<td>Quiz 3</td>
+</tr>
+<tr>
+<td>Thursday, December 10th</td>
+<td>
+	<ul>
+		<li><a href="https://github.com/tuftsdev/DefenseOfTheDarkArts/tree/gh-pages/notes/20151210-ybentov.md">What's The Point?</a></li>
+		<li>Read: <a href="notes/4858-1066-strike.pdf">"Strike Back" by Jennifer Granick (;login: volume 29, number 6, 2004)</a></li>
+		<li>Read: <a href="notes/cyberinsecurity.pdf">"CyberInsecurity: The Cost of Monopoly" by Dan Geer (2004)</a></li>
+	</ul>
+</td>
+<td>Course Evaluation</td>
+</tr>
+</table>
+
+<h2>Course Policies</h2>
+
+<h3>Late Policy</h3>
+<p>Assignments (labs, homework) that is submitted electronically (most homework) will typically be due at 11:59 PM on a Tuesday or Thursday. We will grant an automatic extension of ten minutes at no cost to you. If you plan on submitting your work at midnight or at six, you will have nine minutes for last-minute changes.</p>
+<p>An assignment is expected to be submitted on time. However, we recognize that the exigencies of college life occasionally interfere with on-time submission. If you have difficulty getting the assignment in on time, you have two options:</p>
+<ol>
+<li>For ordinary difficulties, each student is automatically issued three (3) "extension tokens." By expending an extension token, you can get an automatic 24-hour extension on all deadlines associated with a single assignment.  To use an extension token, you must e-mail me at <code>mchow@cs.tufts.edu</code>. Thus must be sent before the assignment is due.  At most two extension tokens may be expended on any single assignment.  When you are out of tokens, late assignments will no longer be accepted: it will be returned ungraded, and you will receive no credit for the work.</li>
+<li>If a serious illness affects your ability to complete the assignment on time, your first step is to report the illness using the "Illness Notification Form" that is available in WebCenter for Students. We will make suitable arrangements. For extraordinary difficulties, such as bereavement, family emergencies, or other extraordinary unpleasant events, your first step should be to make contact with your associate dean for undergraduate education. You must take this step before the assignment is due. Ask your dean to drop me an email or give me a call, and we will make special arrangements that are suited to your circumstances.</li>
+</ol>
+<p>Please understand that extension tokens are meant to be used.  That is, you will not receive any special bonus at the end of the course if you do not use any of your extension tokens.</p>
+
+<h3>Labs</h3>
+<p>A lab is due one week from the day it is assigned.</p>
+
+<h3>Solutions to Assignments and Examinations</h3>
+<p>Solutions to assignments and examinations will not be posted for this course.</p>
+
+</body>
+</html>
