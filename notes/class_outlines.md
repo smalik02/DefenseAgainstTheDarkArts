@@ -6,3 +6,4 @@
 * The schtick is very different in this course, and this may be the most "different" course you will take in the CS curriculum.
 * One outcome of this course: question everything
 * What's my ultimate goal for you in this course?  We'll revisit this on the last day of class.
+* By definition, Security is...
