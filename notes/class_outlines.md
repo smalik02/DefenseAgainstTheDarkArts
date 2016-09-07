@@ -12,6 +12,8 @@
 * Virtual Machine
 
 #Thursday, September 8th
+* PSA
 * Social Engineering
 * But, if most Security problems are human-based, then why do we need to focus on exploits, vulnerabilities, the tech stuff?
 * Watch: Tacoma Narrows Bridge Fail
+* What's the point?
