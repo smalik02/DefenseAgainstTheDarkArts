@@ -43,6 +43,7 @@
 
 #Thursday, September 15th: Sniffing
 * So you may be curious: how did we capture all those packets?
+* tcpdump, ifconfig
 * Two types of networks:
   1. Switched - packets flow through specific devices on network
   2. Unswitched - packets flow through all devices on network but you look at only the packets addressed to you......
