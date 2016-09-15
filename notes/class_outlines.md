@@ -45,15 +45,17 @@
 * So you may be curious: how did we capture all those packets?
 * tcpdump, ifconfig
 * Two types of networks:
-  1. Switched - packets flow through specific devices on network
-  2. Unswitched - packets flow through all devices on network but you look at only the packets addressed to you......
+  1. Unswitched - packets flow through all devices on network but you look at only the packets addressed to you......
+    - Welp... http://superuser.com/questions/191191/where-can-i-find-an-unswitched-ethernet-hub
+  2. Switched - packets flow through specific devices on network
 * Promiscuous mode
 * Preventing sniffing:
   1. Use encryption and encrypted network protocols
   2. VPN
   3. Use switched network......?
+* LAN Tap: http://hakshop.myshopify.com/products/throwing-star-lan-tap-pro
 * Address Resolution Protocol
-  * IP address to MAC address on a network'
+  * IP address to MAC address on a network
   * Recall OSI model and packets
   * `arp -a`
   * ARP cache on machine for 20 minutes
