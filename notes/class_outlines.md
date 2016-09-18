@@ -61,3 +61,51 @@
   * ARP cache on machine for 20 minutes
   * No authentication
 * ARP spoofing or ARP poisoning
+
+#Tuesday, September 20th: Scanning
+* Last class: sniffing unswitched and switched networks
+* Preventing sniffing on switched network:
+  * anti-arpspoof
+  * ArpON
+  * Antidote
+  * Arpwatch
+* Scanning
+  * Why? Network reconnaissance.  Warfare 101
+  * What devices and computers are up?
+  * What ports are open on a computer?
+  * What services are running
+  * Determine possible vulnerabilities
+* Basic method: ping sweep
+* Problems with ping?
+* Netcat
+* Nmap
+
+#Tuesday, September 22nd: Scanning, Part II
+* Recall scanning:
+* What could possibly go wrong?
+* Want to be stealthy!
+* RFC 793: if ports are closed and you send "junk" to it, RST packet will be sent!
+  * FIN scan: `sudo nmap -sF ...`
+  * NULL scan: `sudo nmape -sN ...`
+  * XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet
+  * Decoy:
+    * `sudo nmap -D...`
+    * spoofed connections
+    * Must use real + alive IP address, else SYN flood
+* SYN flood
+    * The idea: exhaust states in the TCP/IP stack
+    * Recall TCP/IP handshaking
+    * Attacker sends SYN packets with a spoofed source address, the victim, (that goes nowhere)
+    * Victim sends SYN/ACK packet but attacker stays slient
+    * Half-open connections must time out which may take a while
+    * Alas, good SYN packets will not be able to go through
+* Defending against scanners
+  * No certain way
+  * Firewalls?
+  * Close services
+  * Packet filtering
+* Defending against SYN flood
+  * Increase queue
+  * Filtering
+  * SYN cookies
+  * Reduce timer for SYN packets
