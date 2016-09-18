@@ -64,6 +64,7 @@
 
 #Tuesday, September 20th: Scanning
 * Last class: sniffing unswitched and switched networks
+* Is sniffing still relevant today?
 * Preventing sniffing on switched network:
   * anti-arpspoof
   * ArpON
@@ -75,6 +76,7 @@
   * What ports are open on a computer?
   * What services are running
   * Determine possible vulnerabilities
+* Is scanning still relevant today?
 * Basic method: ping sweep
 * Problems with ping?
 * Netcat
