@@ -70,6 +70,12 @@
   * ArpON
   * Antidote
   * Arpwatch
+* About that problem on the PCAPs lab
+  * A goal of this class: recognition and mindset
+  * Base64: binary-to-text encoding scheme.  That is: binary data to ASCII
+  * http://stackoverflow.com/questions/6916805/why-does-a-base64-encoded-string-have-an-sign-at-the-end
+  * Why? Dangers in printing payload: https://unix.stackexchange.com/questions/73713/how-safe-is-it-to-cat-an-arbitrary-file
+  * Why? Basic authentication on web
 * Scanning
   * Why? Network reconnaissance.  Warfare 101
   * What devices and computers are up?
