@@ -91,23 +91,25 @@
 #Tuesday, September 22nd: Scanning, Part II
 * Recall scanning:
   - Think poking holes, "ask questions"
+* Poking holes => finding interesting and unwanted stuff on networks
+  - Shodan: https://www.shodan.io/
 * What could possibly go wrong?
 * Want to be stealthy!
 * RFC 793: if ports are closed and you send "junk" to it, RST packet will be sent! (page 65)
   * FIN scan: `sudo nmap -sF ...`
   * NULL scan: `sudo nmap -sN ...`
   * XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet
-  * Decoy:
-    * `sudo nmap -D...`
-    * spoofed connections
-    * Must use real + alive IP address, else SYN flood
+* Decoy:
+  * `sudo nmap -D...`
+  * spoofed connections
+  * Must use real + alive IP address, else SYN flood
 * SYN flood
-    * The idea: exhaust states in the TCP/IP stack
-    * Recall TCP/IP handshaking
-    * Attacker sends SYN packets with a spoofed source address, the victim, (that goes nowhere)
-    * Victim sends SYN/ACK packet but attacker stays slient
-    * Half-open connections must time out which may take a while
-    * Alas, good SYN packets will not be able to go through
+  * The idea: exhaust states in the TCP/IP stack
+  * Recall TCP/IP handshaking
+  * Attacker sends SYN packets with a spoofed source address, the victim, (that goes nowhere)
+  * Victim sends SYN/ACK packet but attacker stays slient
+  * Half-open connections must time out which may take a while
+  * Alas, good SYN packets will not be able to go through
 * Defending against scanners
   * No certain way
   * Firewalls?
