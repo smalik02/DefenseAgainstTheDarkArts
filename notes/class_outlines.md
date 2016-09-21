@@ -90,11 +90,12 @@
 
 #Tuesday, September 22nd: Scanning, Part II
 * Recall scanning:
+  - Think poking holes, "ask questions"
 * What could possibly go wrong?
 * Want to be stealthy!
-* RFC 793: if ports are closed and you send "junk" to it, RST packet will be sent!
+* RFC 793: if ports are closed and you send "junk" to it, RST packet will be sent! (page 65)
   * FIN scan: `sudo nmap -sF ...`
-  * NULL scan: `sudo nmape -sN ...`
+  * NULL scan: `sudo nmap -sN ...`
   * XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet
   * Decoy:
     * `sudo nmap -D...`
