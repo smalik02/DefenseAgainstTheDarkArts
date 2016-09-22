@@ -98,7 +98,7 @@
 * RFC 793: if ports are closed and you send "junk" to it, RST packet will be sent! (page 65)
   * FIN scan: `sudo nmap -sF ...`
   * NULL scan: `sudo nmap -sN ...`
-  * XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet
+  * XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet]
 * Decoy:
   * `sudo nmap -D...`
   * spoofed connections
@@ -120,3 +120,9 @@
   * Filtering
   * SYN cookies
   * Reduce timer for SYN packets
+
+#Tuesday, September 27th: The Oldie But Goodie Networking Attacks
+* Amplication attack, Denial of Service
+  - Smurf
+* https://blog.cloudflare.com/deep-inside-a-dns-amplification-ddos-attack/
+* Someone I know: Brian Krebs http://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/
