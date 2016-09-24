@@ -55,33 +55,33 @@
   3. Use switched network......?
 * LAN Tap: http://hakshop.myshopify.com/products/throwing-star-lan-tap-pro
 * Address Resolution Protocol
-  * IP address to MAC address on a network
-  * Recall OSI model and packets
-  * `arp -a`
-  * ARP cache on machine for 20 minutes
-  * No authentication
+  - IP address to MAC address on a network
+  - Recall OSI model and packets
+  - `arp -a`
+  - ARP cache on machine for 20 minutes
+  - No authentication
 * ARP spoofing or ARP poisoning
 
 #Tuesday, September 20th: Scanning
 * Last class: sniffing unswitched and switched networks
 * Is sniffing still relevant today?
 * Preventing sniffing on switched network:
-  * anti-arpspoof
-  * ArpON
-  * Antidote
-  * Arpwatch
+  - anti-arpspoof
+  - ArpON
+  - Antidote
+  - Arpwatch
 * About that problem on the PCAPs lab
-  * A goal of this class: recognition and mindset
-  * Base64: binary-to-text encoding scheme.  That is: binary data to ASCII
-  * http://stackoverflow.com/questions/6916805/why-does-a-base64-encoded-string-have-an-sign-at-the-end
-  * Why? Dangers in printing payload: https://unix.stackexchange.com/questions/73713/how-safe-is-it-to-cat-an-arbitrary-file
-  * Why? Basic authentication on web. Example: https://github.com/LiamRandall/BsidesDC-Training/blob/master/http-auth/http-basic-auth-multiple-failures.pcap
+  - A goal of this class: recognition and mindset
+  - Base64: binary-to-text encoding scheme.  That is: binary data to ASCII
+  - http://stackoverflow.com/questions/6916805/why-does-a-base64-encoded-string-have-an-sign-at-the-end
+  - Why? Dangers in printing payload: https://unix.stackexchange.com/questions/73713/how-safe-is-it-to-cat-an-arbitrary-file
+  - Why? Basic authentication on web. Example: https://github.com/LiamRandall/BsidesDC-Training/blob/master/http-auth/http-basic-auth-multiple-failures.pcap
 * Scanning
-  * Why? Network reconnaissance.  Warfare 101
-  * What devices and computers are up?
-  * What ports are open on a computer?
-  * What services are running
-  * Determine possible vulnerabilities
+  - Why? Network reconnaissance.  Warfare 101
+  - What devices and computers are up?
+  - What ports are open on a computer?
+  - What services are running
+  - Determine possible vulnerabilities
 * Is scanning still relevant today?
 * Basic method: ping sweep
 * Problems with ping?
@@ -96,33 +96,61 @@
 * What could possibly go wrong?
 * Want to be stealthy!
 * RFC 793: if ports are closed and you send "junk" to it, RST packet will be sent! (page 65)
-  * FIN scan: `sudo nmap -sF ...`
-  * NULL scan: `sudo nmap -sN ...`
-  * XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet]
+  - FIN scan: `sudo nmap -sF ...`
+  - NULL scan: `sudo nmap -sN ...`
+  - XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet]
 * Decoy:
-  * `sudo nmap -D...`
-  * spoofed connections
-  * Must use real + alive IP address, else SYN flood
-* SYN flood
-  * The idea: exhaust states in the TCP/IP stack
-  * Recall TCP/IP handshaking
-  * Attacker sends SYN packets with a spoofed source address, the victim, (that goes nowhere)
-  * Victim sends SYN/ACK packet but attacker stays slient
-  * Half-open connections must time out which may take a while
-  * Alas, good SYN packets will not be able to go through
-* Defending against scanners
-  * No certain way
-  * Firewalls?
-  * Close services
-  * Packet filtering
-* Defending against SYN flood
-  * Increase queue
-  * Filtering
-  * SYN cookies
-  * Reduce timer for SYN packets
+  - `sudo nmap -D...`
+  - spoofed connections
+  - Must use real + alive IP address, else SYN flood
 
-#Tuesday, September 27th: The Oldie But Goodie Networking Attacks
-* Amplication attack, Denial of Service
-  - Smurf
-* https://blog.cloudflare.com/deep-inside-a-dns-amplification-ddos-attack/
-* Someone I know: Brian Krebs http://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/
+#Tuesday, September 27th: Distributed Denial of Service (DDoS) Attacks
+* Last class: the stealthy scans, using decoys
+* Defending against scanners
+  - No certain way
+  - Firewalls?
+  - Close services
+  - Packet filtering
+* The first "D" (Distributed) in DDoS: attack source is more than one, often thousands of, unique IP addresses
+* SYN flood
+  - The idea: exhaust states in the TCP/IP stack
+  - Recall TCP/IP handshaking
+  - Attacker sends SYN packets with a spoofed source address, the victim, (that goes nowhere)
+  - Victim sends SYN/ACK packet but attacker stays slient
+  - Half-open connections must time out which may take a while
+  - Alas, good SYN packets will not be able to go through
+  - Reference 1: https://www.cert.org/historical/advisories/CA-1996-21.cfm?
+  - Reference 2, RFC 4987: https://tools.ietf.org/html/rfc4987
+  - Reference 3: https://www.juniper.net/documentation/en_US/junos12.1x44/topics/concept/denial-of-service-network-syn-flood-attack-understanding.html
+* Defending against SYN flood
+  - Increase queue
+  - Filtering
+  - SYN cookies
+  - Reduce timer for SYN packets
+* Teardrop (old)
+  - The idea: "involves sending fragmented packets to a target machine. Since the machine receiving such packets cannot reassemble them due to a bug in TCP/IP fragmentation reassembly, the packets overlap one another, crashing the target network device." https://security.radware.com/ddos-knowledge-center/ddospedia/teardrop-attack/
+  - Recall RFC 791 (IP), the IP packet fields in question: Fragment Offset, Flag (namely "Don't fragment" and "More fragments")
+  - Result: "Since the machine receiving such packets cannot reassemble them due to a bug in TCP/IP fragmentation reassembly, the packets overlap one another, crashing the target network device."
+  - Reference: https://www.juniper.net/techpubs/software/junos-es/junos-es92/junos-es-swconfig-security/understanding-teardrop-attacks.html
+* Ping of Death (old)
+  - The idea: violate the IP contract
+  - In RFC 791, the maximum size of an IP packet is 65,535 bytes --including the packet header, which is typically 20 bytes long.
+  - An ICMP echo request is an IP packet with a pseudo header, which is 8 bytes long. Therefore, the maximum allowable size of the data area of an ICMP echo request is 65,507 bytes (65,535 - 20 - 8 = 65,507)
+  - Result: "However, many ping implementations allow the user to specify a packet size larger than 65,507 bytes. A grossly oversized ICMP packet can trigger a range of adverse system reactions such as denial of service (DoS), crashing, freezing, and rebooting."
+* ICMP Flood Attack => Overload victim with a huge number of ICMP echo requests with spoofed source IP addresses.
+* UDP Flood Attack => Same idea of ICMP flood attack but using UDP packets
+* Smurf Attack (old, 1990s) => An example of abusing `ping` and *amplification*
+* Defending against ICMP flood and Smurf attacks => Disable `ping`
+* DNS Amplification:
+  - The idea: "relies on the use of publically accessible open DNS servers to overwhelm a victim system with DNS response traffic."
+  - DNS server port number: 53
+  - Reference 1: https://www.us-cert.gov/ncas/alerts/TA13-088A
+  - Reference 2: https://blog.cloudflare.com/deep-inside-a-dns-amplification-ddos-attack/
+  - Case study from last week: Brian Krebs http://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/
+* How easy it is to spoof packets? I want to introduce you to Scapy......
+* Example, to make a DNS query (source: https://gist.github.com/thepacketgeek/6928674):
+
+`from scapy.all import *
+
+answer = sr1(IP(dst="8.8.8.8")/UDP(dport=53)/DNS(rd=1,qd=DNSQR(qname="www.cs.tufts.edu")),verbose=0)
+print answer[DNS].summary()`
