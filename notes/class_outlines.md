@@ -148,9 +148,4 @@
   - Reference 2: https://blog.cloudflare.com/deep-inside-a-dns-amplification-ddos-attack/
   - Case study from last week: Brian Krebs http://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/
 * How easy it is to spoof packets? I want to introduce you to Scapy......
-* Example, to make a DNS query (source: https://gist.github.com/thepacketgeek/6928674):
-
-`from scapy.all import *
-
-answer = sr1(IP(dst="8.8.8.8")/UDP(dport=53)/DNS(rd=1,qd=DNSQR(qname="www.cs.tufts.edu")),verbose=0)
-print answer[DNS].summary()`
+* Example, to make a DNS query: https://gist.github.com/thepacketgeek/6928674
