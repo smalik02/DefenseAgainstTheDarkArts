@@ -149,3 +149,36 @@
   - Case study from last week: Brian Krebs http://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/
 * How easy it is to spoof packets? I want to introduce you to Scapy......
 * Example, to make a DNS query: https://gist.github.com/thepacketgeek/6928674
+
+#Thursday, September 29th: Vulnerabilities
+* Recall: vocabulary (Course Introduction)
+* Why talk about this now?
+  - The next topics have a lot to do about vulnerabilities
+  - Vocabulary
+  - Understand why software development is very difficult. A painful example......
+  - Misconceptions
+  - The difficulty of disclosure
+* Common Vulnerabilities and Exposures (CVE) https://cve.mitre.org/
+  - SushiDude a.k.a., Steve Christey Coley
+  - The ugly: http://www.csoonline.com/article/3122460/techology-business/over-6000-vulnerabilities-went-unassigned-by-mitres-cve-project-in-2015.html
+* Common Weakness Enumeration (CWE)
+* The differences: https://www.veracode.com/blog/2016/08/language-appsec
+* Open Sourced Vulnerability Database (OSVDB) http://osvdb.org/
+  - attrition.org
+  - H.D. Moore
+  - Rain Forest Puppy
+  - Chris Sullo
+  - DEAD, looking for someone to pick it back up
+* National Vulnerability Database https://nvd.nist.gov/home.cfm
+* Exploit DB https://www.exploit-db.com/
+* Scanning for vulns:
+  - Nikto https://github.com/sullo/nikto
+  - OpenVAS
+  - Nessus
+  - w3af
+  - Metasploit (Rapid7) https://github.com/rapid7/metasploit-framework
+* So about that box that you scanned for the lab that was due on Tuesday......
+  - https://threatpost.com/honeypot-snares-two-bots-exploiting-bash-vulnerability/108578/
+  - Legal and ethical issues?
+* If you do a scan or a penetration test of a system and no vulnerabilities are reported, is that a good thing?
+  - The badness-ometer
