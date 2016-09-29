@@ -151,6 +151,13 @@
 * Example, to make a DNS query: https://gist.github.com/thepacketgeek/6928674
 
 #Thursday, September 29th: Vulnerabilities
+* Loose ends:
+  - set2.pcap in the PCAPs lab. Motivation: 2015 SANS Holiday Hack Challenge: https://holidayhackchallenge.com/
+  - The scapy lab: a larger PCAP that looks very similar to that of set2.pcap
+  - So how do you defend against scanning?
+  - So how do you defend against DDoS?
+  - So is attribution impossible?
+* Verizon's 2016 Data Breach Investigations Report (DBIR)
 * Recall: vocabulary (Course Introduction)
 * Why talk about this now?
   - The next topics have a lot to do about vulnerabilities
