@@ -157,7 +157,7 @@
   - So how do you defend against scanning?
   - So how do you defend against DDoS?
   - So is attribution impossible?
-* Verizon's 2016 Data Breach Investigations Report (DBIR)
+* Verizon's 2016 Data Breach Investigations Report (DBIR)
 * Recall: vocabulary (Course Introduction)
 * Why talk about this now?
   - The next topics have a lot to do about vulnerabilities
