@@ -157,6 +157,9 @@
   - So how do you defend against scanning?
   - So how do you defend against DDoS?
   - So is attribution impossible?
+  - So about that box that you scanned for the lab......
+    - https://threatpost.com/honeypot-snares-two-bots-exploiting-bash-vulnerability/108578/
+    - Legal and ethical issues?
 * Verizon's 2016 Data Breach Investigations Report (DBIR)
 * Recall: vocabulary (Course Introduction)
 * Why talk about this now?
@@ -184,8 +187,5 @@
   - Nessus
   - w3af
   - Metasploit (Rapid7) https://github.com/rapid7/metasploit-framework
-* So about that box that you scanned for the lab that was due on Tuesday......
-  - https://threatpost.com/honeypot-snares-two-bots-exploiting-bash-vulnerability/108578/
-  - Legal and ethical issues?
 * If you do a scan or a penetration test of a system and no vulnerabilities are reported, is that a good thing?
   - The badness-ometer
