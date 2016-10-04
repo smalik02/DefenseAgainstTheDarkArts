@@ -189,3 +189,35 @@
   - Metasploit (Rapid7) https://github.com/rapid7/metasploit-framework
 * If you do a scan or a penetration test of a system and no vulnerabilities are reported, is that a good thing?
   - The badness-ometer
+
+#Tuesday, October 4th: Crypto, Part I
+* This week: crypto, the foundation of Computer Security
+* The golden rule: "Never Roll Your Own Crypto"
+* Crypto algorithms: symmetric, hash functions, asymmetric
+* Tradeoffs to consider:
+  * Cost of breaking a cipher
+  * Value of the information that is encrypted
+  * Time required to break info
+  * Lifetime of information?
+* The only secure crypto algorithm: One-Time Pad
+* Symmetric algorithms: DES, AES, RC4. What do they provide in terms of security? What do they not provide?
+* One way hash functions: MD5, SHA-1.  What do they provide in terms of security? What do they not provide?
+* Crypto and connection with vulnerabilities? See https://cve.mitre.org/about/terminology.html
+* Case study: crap login code
+* https://crackstation.net/hashing-security.htm
+* Cracking user accounts on Linux systems:
+  * Use /etc/passwd and /etc/shadow files from Linux-based systems
+  * $algorithm$salt$hash
+  * $1$ = MD5
+  * $2$ = Blowfish
+  * $5$ = SHA-256
+  * $6$ = SHA-512
+
+#Thursday, October 6th: Crypto, Part II
+* Today: asymmetric crypto, public and private keys: RSA
+* Example: SSH, GitHub
+* What does asymmetric crypto does not provide?
+* Digital certificates - assert the online identities of individuals, computers, and other entities on a network
+* They are issued by certification authorities (CAs) that must validate the identity of the certificate-holder both before the certificate is issued and when the certificate is used.
+* Specification: https://technet.microsoft.com/en-us/library/cc776447(v=ws.10).aspx
+* More: https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work, https://stackoverflow.com/questions/788808/how-do-digital-certificates-work-when-used-for-securing-websites-using-ssl
