@@ -202,22 +202,50 @@
 * The only secure crypto algorithm: One-Time Pad
 * Symmetric algorithms: DES, AES, RC4. What do they provide in terms of security? What do they not provide?
 * One way hash functions: MD5, SHA-1.  What do they provide in terms of security? What do they not provide?
-* Crypto and connection with vulnerabilities? See https://cve.mitre.org/about/terminology.html
-* Case study: crap login code
-* https://crackstation.net/hashing-security.htm
-* Cracking user accounts on Linux systems:
-  * Use /etc/passwd and /etc/shadow files from Linux-based systems
-  * $algorithm$salt$hash
-  * $1$ = MD5
-  * $2$ = Blowfish
-  * $5$ = SHA-256
-  * $6$ = SHA-512
 
 #Thursday, October 6th: Crypto, Part II
+* Last class: the golden rules of crypto, symmetric algorithms, one-way hash functions
+* Applications: checksums, Git hash (SHA-1)
+* Cracking user accounts on Linux systems:
+  - Use /etc/passwd and /etc/shadow files from Linux-based systems
+  - $algorithm$salt$hash
+  - $1$ = MD5
+  - $2$ = Blowfish
+  - $5$ = SHA-256
+  - $6$ = SHA-512
 * Today: asymmetric crypto, public and private keys: RSA
 * Example: SSH, GitHub
 * What does asymmetric crypto does not provide?
-* Digital certificates - assert the online identities of individuals, computers, and other entities on a network
-* They are issued by certification authorities (CAs) that must validate the identity of the certificate-holder both before the certificate is issued and when the certificate is used.
-* Specification: https://technet.microsoft.com/en-us/library/cc776447(v=ws.10).aspx
-* More: https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work, https://stackoverflow.com/questions/788808/how-do-digital-certificates-work-when-used-for-securing-websites-using-ssl
+* So how does Transport Layer Security (TLS) (also commonly known as Secure Socket Layer or SSL work)?
+  - Why? HTTPS is HTTP inside of a TLS session
+  - Uses BOTH symmetric and asymmetric crypto
+  - Secure communications between two parties over a network
+  - On top of TCP
+  - Different port numbers used for TLS connection.  Port 443 for HTTPS
+  - Part 1: Data between two parties encrypted via symmetric crypto.  Why?
+  - Part 2: Identity of communicating parties identified via asymmetric crypto
+  - Connection integrity via message integrity check using a message authentication code 
+  - Digital certificates - assert the online identities of individuals, computers, and other entities on a network
+    - They are issued by certification authorities (CAs) that must validate the identity of the certificate-holder both before the certificate is issued and when the certificate is used.
+    - Specification: https://technet.microsoft.com/en-us/library/cc776447(v=ws.10).aspx
+* TLS process:
+  1. Client connects to TLS-enabled server. Client requesting a secure connection and presents a list of supported cipher suites (ciphers and hash functions).
+  2. The server checks what the highest SSL/TLS version is that is supported by them both, picks a ciphersuite from one of the client's options (if it supports one), and optionally picks a compression method.
+  3. The server sends back its identification via digital certificate (THIS MAY NOT HAPPEN)
+  4. Client confirms validity of certificate --or NOT!
+  5. Both the server and the client can now compute the session key (or shared secret) for the symmetric encryption and decryption of the data.  This computation of the session key is known as Diffie-Hellman key exchange.
+  6. "The client tells the server that from now on, all communication will be encrypted, and sends an encrypted and authenticated message to the server."
+* References:
+  - https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work
+  - https://stackoverflow.com/questions/788808/how-do-digital-certificates-work-when-used-for-securing-websites-using-ssl
+  - http://security.stackexchange.com/questions/45963/diffie-hellman-key-exchange-in-plain-english
+  - https://blogs.akamai.com/2016/03/enterprise-security---ssltls-primer-part-1---data-encryption.html
+  - https://blogs.akamai.com/2016/03/enterprise-security---ssltls-primer-part-2---public-key-certificates.html
+* Creating self-signed certificates:
+  - For Apache web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
+  - For nginx web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
+
+#Future
+* Crypto and connection with vulnerabilities? See https://cve.mitre.org/about/terminology.html
+* Case study: crap login code
+* https://crackstation.net/hashing-security.htm
