@@ -216,6 +216,8 @@
 * Today: asymmetric crypto, public and private keys: RSA
 * Example: SSH, GitHub
 * What does asymmetric crypto does not provide?
+
+#Tuesday, October 11th: Crypto, Part III
 * So how does Transport Layer Security (TLS) (also commonly known as Secure Socket Layer or SSL work)?
   - Why? HTTPS is HTTP inside of a TLS session
   - Uses BOTH symmetric and asymmetric crypto
