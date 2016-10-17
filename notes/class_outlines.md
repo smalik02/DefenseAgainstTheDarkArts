@@ -247,7 +247,35 @@
   - For Apache web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
   - For nginx web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
 
+#Tuesday, October 18th: Web Security
+* Last class: Christine's talk => OWASP Top 10, Heartbleed, XSRF
+* Loose end 1: bug vs flaw
+* Loose end 2: vulnerabilities:
+  * Common Vulnerabilities and Exposures (CVE) https://cve.mitre.org/
+  - SushiDude a.k.a., Steve Christey Coley
+  - The ugly: http://www.csoonline.com/article/3122460/techology-business/over-6000-vulnerabilities-went-unassigned-by-mitres-cve-project-in-2015.html
+  - Common Weakness Enumeration (CWE)
+  - Crypto and connection with vulnerabilities? See https://cve.mitre.org/about/terminology.html
+  - The differences: https://danielmiessler.com/blog/difference-cve-cwe/#gs.03_NSOU, https://www.veracode.com/blog/2016/08/language-appsec
+  * National Vulnerability Database https://nvd.nist.gov/home.cfm
+  * Exploit DB https://www.exploit-db.com/
+* Loose end 1: Cross-Site Scripting (XSS)
+  - http://www.veracode.com/blog/2012/07/what-is-cross-site-scripting
+* Our attack playground: http://www.cs.tufts.edu/comp/20/hackme.php
+* Proxy
+* Burp Suite
+* SQL injection
+  - The idea: twist SQL queries via input data => access or modify data you should not have access to
+  - Where to attack: web applications with a database; attack form fields or URL parameters
+  - The culprit: the single quote
+  - How to determine SQL injection: errors displayed on page
+  - Blind SQL injection: asks the database true or false questions and determines the answer based on the applications response
+  - Prevention:
+    - Filter out special characters
+    - Limit data and privileges that a database has access to => least privilege
+    - Use prepared statements
+* In-class lab: DVWA
+
 #Future
-* Crypto and connection with vulnerabilities? See https://cve.mitre.org/about/terminology.html
 * Case study: crap login code
 * https://crackstation.net/hashing-security.htm
