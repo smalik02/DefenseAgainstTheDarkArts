@@ -276,6 +276,12 @@
     - Use prepared statements
 * In-class lab: DVWA
 
+#Thursday, October 20th: Web Security
+* How I designed the Scapy lab
+* Last class: XSS, SQLi, proxy
+* Today: XSRF, command execution, file uploads, directory traversal
+* hackme.php
+
 #Future
 * Case study: crap login code
 * https://crackstation.net/hashing-security.htm
