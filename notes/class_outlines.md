@@ -282,6 +282,44 @@
 * Today: XSRF, command execution, file uploads, directory traversal
 * hackme.php
 
+#Thursday, November 10th: Static and Dynamic Analysis
+* Congratulations!
+* CTF recap
+* Special CTF recognitions:
+  - Most clever hack
+  - The lunch pail
+* Static analysis:
+  * No execution of program
+  * Rule based
+  * Full coverage
+  * Binary: black box
+  * Code: white box
+  * Examples: lint, Coverity, Fortify, grep
+* Dynamic analysis:
+  * System execution
+  * Trial and error
+  * Detect dependencies
+  * Deal with real runtime variables
+  * Based on automated tests, user interactions
+  * No guarantee of full coverage of source
+  * Example: Valgrind
+* Techniques:
+  * Data flow analysis
+    * Collect runtime info about data while in a static state
+    * Basic block (the code), control flow, control path
+  * Control graph
+    * Node => block
+    * Edges => jumps / paths
+  * Taint analysis (also DFA)
+    * Identify variables that have been tainted; used vuln fns known as sink
+  * Lexical analysis
+    * code => tokens  (e.g., /* gets */)
+* Strengths and weaknesses
+  * Find vulnerabilities with high confidence
+  * False positives, false negatives
+  * Can't find configuration issues
+  * Can you prove findings are vulnerabilities?
+
 #Future
 * Case study: crap login code
 * https://crackstation.net/hashing-security.htm
