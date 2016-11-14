@@ -320,6 +320,74 @@
   * Can't find configuration issues
   * Can you prove findings are vulnerabilities?
 
+#Tuesday, November 15th: Malware
+* Virus
+  - Think of a biological virus: propagation and piggybacking
+  - A malicious piece of executable code
+  - Propagates by attaching itself to a host file
+  - A virus can be: an executable (i.e., .exe as seen in e-mail attachment), a script, document containing macros
+  - A boot sector of a disk partition
+  - Note: when propagating, the virus does not have to be an exact copy of itself!
+  - If you send infected file to someone else and that person executes the file, it will infect the person's system as well
+  - Viruses do not re-infect already infected files
+* Worm
+  - Does not need to attach itself to another file (i.e., self-contained)
+  - Send copies of itself over a network
+  - Another difference: a virus infects a machine while a worm infects a network (e.g., consuming bandwidth)
+  - How does a worm hop from machine to machine on a network? Using remote commands such as rsh, password cracking, using sockets
+  - Techniques
+    - Scanning; select random IPv4 addresses
+    - Send small packets to reduce suspicion
+    - Connect to vulnerable network services, exploit vulnerability
+    - Perhaps even open up a shell
+* Backdoor
+  - Bypasses authentication
+  - Grants attacker access to remote machine
+  - Connecting to a remote machine: used netcat or a malware kit (e.g., MPack)
+  - Example 2: tini.exe
+* VirusTotal: https://www.virustotal.com/
+
+#Thursday, November 17th: Malware (continued), Forensics and Incident Handling
+* What is forensics?
+  - Preservation (of computer media)
+  - Identification (of computer media)
+  - Extraction (of computer media)
+  - Interpretation
+  - Documentation
+* Process
+  - Assess the situation
+  - Acquire data
+  - Analyze data
+  - Report
+* Terminology
+  - Volatile
+  - Non-volatile
+  - Physical acquisition - bit-by-bit copy of entire physical store
+  - Logical acquisition - bit-by-bit copy of directories and files on a file system partition
+  - Write blockers: "devices that allow acquisition of information on a drive without creating the possibility of accidentally damaging the drive contents. They do this by allowing read commands to pass but by blocking write commands" (http://forensicswiki.org/wiki/Write_Blockers)
+  - Chain-of-custody - chronological documentation from "crade-to-grave" (i.e., seizre, custody, control, transfer, analysis, disposal)
+* Tools
+  - strings
+  - dd (convert-and-copy)
+  - FTK
+  - Encase
+  - Microsoft COFEE (for law enforcement only)
+  - stegdetect
+  - Sleuthkit and Autopsy
+* Incident Handling. Or Why Incident Handling?
+  - Chaos
+  - Barking up the wrong trees
+  - Dead-end investigations
+  - Hard to accumulate knowledge, experience
+  - Legal issues
+  - Cost overruns
+  - Organization (i.e., do not know who to contact)
+* Forensics vs. Incident Handling
+  - There are overlaps
+  - Forensics: "finding and documenting the actions of a person or persons in relation to other people or places or activities. Must have a strong understanding of where and how data is stored, how data is created, how to recover that data in a forensically sound manner and how to analyze the recovered data.""
+  - Incident Handling: generally speaking, must be well versed with many facets of IT and information security.
+  - Source: http://exforensis.blogspot.com/2009/09/how-is-computer-forensics-different.html
+
 #Future
 * Case study: crap login code
 * https://crackstation.net/hashing-security.htm
