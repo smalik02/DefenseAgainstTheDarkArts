@@ -388,6 +388,67 @@
   - Incident Handling: generally speaking, must be well versed with many facets of IT and information security.
   - Source: http://exforensis.blogspot.com/2009/09/how-is-computer-forensics-different.html
 
+#Tuesday, November 29th: Anti-Forensics, Privacy
+* Last class: malware, forensics
+* Last class: the USB stick...
+* The last lab: disk image --physical or logical acquisition?  Write blocker used?
+* Question: countermeasures to forensics?
+* Question: what is privacy?
+* Why talk privacy?
+  1. Misconceptions
+  2. Misunderstandings
+  3. Legal implications
+* True privacy: permits a person to be effectively invisible
+* Impossible.  Reasons:
+  * ISP logs
+  * Poorly written software
+  * Technology itself
+* The good: Notepad, Paint
+* The bad: World of Warcraft, Quickens, Facebook, Microsoft Word
+* What to do now in the age of Facebook:
+  * Control: comply with person's desire when it comes to handling personal information, data collection
+  * Disclosure: failure to explicitly consider privacy => bad press. Examples: Windows Media Player, HP printers
+* Mantras:
+  * Provide prominent disclosure
+  * Put users in charge of their data
+  * Seek anonymity
+  * _Less is more_
+  * Customers come first
+* Privacy Enhancing Technologies (PETs): crowds, Tor, Hushmail, prepaid credit cards
+* Privacy Aware Technologies (PATs): Unsubscribe, password, encryption
+* Goals of PATs and PETs:
+  * Unlinkability
+  * Anonymity
+  * Pseudonymity
+  * Unobservability
+* Legislation
+  * U.S. Safe Harbor Privacy Principles
+  * HIPAA (1996)
+  * GLBA (1998)
+* Current Issues
+  * Deploying new technology naively
+  * Violating location-based technologies
+  * RFID
+  * Moble
+
+#What's The Point?
+* Course evaluations
+* Debate questions:
+  * Is it okay to strike back at attackers?
+  * Should tools like nmap, Metasploit, Tamper Data be outlawed?
+  * Should encryption be outlawed?
+  * Edward Snowden: sinner or saint?
+  * Should companies spend money on security awareness training for their employees?
+  * How long should ISP logs be retained for?
+  * True or false: Java is safer to use than C/C++
+* Many topics we did not talk about this semester
+* We learned a little about a lot this semester. You know enough to be dangerous.
+* The morals of the story...
+* What's the ultimate point of this class?  Be a good citizen.  Understand tradeoffs.  Talk to those who are curious. Reach out to the non-tech.  Engage and encourage constructive debates.  We have done a lot of that this semester: see privacy discussion.  Stay informed.
+* A look back at 2004 when I first proposed a course on security, privacy, and politics
+* Looking ahead...
+* Your work is not done.
+
 #Future
 * Case study: crap login code
 * https://crackstation.net/hashing-security.htm
