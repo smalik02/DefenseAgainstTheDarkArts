@@ -391,6 +391,11 @@
 #Tuesday, November 29th: Anti-Forensics, Privacy
 * Last class: malware, forensics
 * Last class: the USB stick...
+* Anti-forensics
+  - Full-disk wipe, DoD 5220.22-M (http://www.dss.mil/documents/odaa/nispom2006-5220.pdf)
+  - Remove logs
+  - Steganography
+  - Encryption (full-disk, e.g., Android, TrueCrypt)
 * The last lab: disk image --physical or logical acquisition?  Write blocker used?
 * Question: countermeasures to forensics?
 * Question: what is privacy?
