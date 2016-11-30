@@ -389,6 +389,7 @@
   - Source: http://exforensis.blogspot.com/2009/09/how-is-computer-forensics-different.html
 
 #Tuesday, November 29th: Anti-Forensics, Privacy
+* Quiz 3 moved
 * Last class: malware, forensics
 * Last class: the USB stick...
 * Anti-forensics
