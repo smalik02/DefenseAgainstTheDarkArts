@@ -195,10 +195,10 @@
 * The golden rule: "Never Roll Your Own Crypto"
 * Crypto algorithms: symmetric, hash functions, asymmetric
 * Tradeoffs to consider:
-  * Cost of breaking a cipher
-  * Value of the information that is encrypted
-  * Time required to break info
-  * Lifetime of information?
+  - Cost of breaking a cipher
+  - Value of the information that is encrypted
+  - Time required to break info
+  - Lifetime of information?
 * The only secure crypto algorithm: One-Time Pad
 * Symmetric algorithms: DES, AES, RC4. What do they provide in terms of security? What do they not provide?
 * One way hash functions: MD5, SHA-1.  What do they provide in terms of security? What do they not provide?
@@ -251,14 +251,14 @@
 * Last class: Christine's talk => OWASP Top 10, Heartbleed, XSRF
 * Loose end 1: bug vs flaw
 * Loose end 2: vulnerabilities:
-  * Common Vulnerabilities and Exposures (CVE) https://cve.mitre.org/
+  - Common Vulnerabilities and Exposures (CVE) https://cve.mitre.org/
   - SushiDude a.k.a., Steve Christey Coley
   - The ugly: http://www.csoonline.com/article/3122460/techology-business/over-6000-vulnerabilities-went-unassigned-by-mitres-cve-project-in-2015.html
   - Common Weakness Enumeration (CWE)
   - Crypto and connection with vulnerabilities? See https://cve.mitre.org/about/terminology.html
   - The differences: https://danielmiessler.com/blog/difference-cve-cwe/#gs.03_NSOU, https://www.veracode.com/blog/2016/08/language-appsec
-  * National Vulnerability Database https://nvd.nist.gov/home.cfm
-  * Exploit DB https://www.exploit-db.com/
+  - National Vulnerability Database https://nvd.nist.gov/home.cfm
+  - Exploit DB https://www.exploit-db.com/
 * Loose end 1: Cross-Site Scripting (XSS)
   - http://www.veracode.com/blog/2012/07/what-is-cross-site-scripting
 * Our attack playground: http://www.cs.tufts.edu/comp/20/hackme.php
@@ -289,36 +289,36 @@
   - Most clever hack
   - The lunch pail
 * Static analysis:
-  * No execution of program
-  * Rule based
-  * Full coverage
-  * Binary: black box
-  * Code: white box
-  * Examples: lint, Coverity, Fortify, grep
+  - No execution of program
+  - Rule based
+  - Full coverage
+  - Binary: black box
+  - Code: white box
+  - Examples: lint, Coverity, Fortify, grep
 * Dynamic analysis:
-  * System execution
-  * Trial and error
-  * Detect dependencies
-  * Deal with real runtime variables
-  * Based on automated tests, user interactions
-  * No guarantee of full coverage of source
-  * Example: Valgrind
+  - System execution
+  - Trial and error
+  - Detect dependencies
+  - Deal with real runtime variables
+  - Based on automated tests, user interactions
+  - No guarantee of full coverage of source
+  - Example: Valgrind
 * Techniques:
-  * Data flow analysis
-    * Collect runtime info about data while in a static state
-    * Basic block (the code), control flow, control path
-  * Control graph
-    * Node => block
-    * Edges => jumps / paths
-  * Taint analysis (also DFA)
-    * Identify variables that have been tainted; used vuln fns known as sink
-  * Lexical analysis
-    * code => tokens  (e.g., /* gets */)
+  - Data flow analysis
+    - Collect runtime info about data while in a static state
+    - Basic block (the code), control flow, control path
+  - Control graph
+    - Node => block
+    - Edges => jumps / paths
+  - Taint analysis (also DFA)
+    - Identify variables that have been tainted; used vuln fns known as sink
+  - Lexical analysis
+    - code => tokens  (e.g., /* gets */)
 * Strengths and weaknesses
-  * Find vulnerabilities with high confidence
-  * False positives, false negatives
-  * Can't find configuration issues
-  * Can you prove findings are vulnerabilities?
+  - Find vulnerabilities with high confidence
+  - False positives, false negatives
+  - Can't find configuration issues
+  - Can you prove findings are vulnerabilities?
 
 #Tuesday, November 15th: Malware
 * Virus
@@ -406,55 +406,66 @@
   3. Legal implications
 * True privacy: permits a person to be effectively invisible
 * Impossible.  Reasons:
-  * ISP logs
-  * Poorly written software
-  * Technology itself
+  - ISP logs
+  - Poorly written software
+  - Technology itself
 * The good: Notepad, Paint
 * The bad: World of Warcraft, Quickens, Facebook, Microsoft Word
 * What to do now in the age of Facebook:
-  * Control: comply with person's desire when it comes to handling personal information, data collection
-  * Disclosure: failure to explicitly consider privacy => bad press. Examples: Windows Media Player, HP printers
+  - Control: comply with person's desire when it comes to handling personal information, data collection
+  - Disclosure: failure to explicitly consider privacy => bad press. Examples: Windows Media Player, HP printers
 * Mantras:
-  * Provide prominent disclosure
-  * Put users in charge of their data
-  * Seek anonymity
-  * _Less is more_
-  * Customers come first
+  - Provide prominent disclosure
+  - Put users in charge of their data
+  - Seek anonymity
+  - _Less is more_
+  - Customers come first
 * Privacy Enhancing Technologies (PETs): crowds, Tor, Hushmail, prepaid credit cards
 * Privacy Aware Technologies (PATs): Unsubscribe, password, encryption
 * Goals of PATs and PETs:
-  * Unlinkability
-  * Anonymity
-  * Pseudonymity
-  * Unobservability
+  - Unlinkability
+  - Anonymity
+  - Pseudonymity
+  - Unobservability
 * Legislation
-  * U.S. Safe Harbor Privacy Principles
-  * HIPAA (1996)
-  * GLBA (1998)
+  - U.S. Safe Harbor Privacy Principles
+  - HIPAA (1996)
+  - GLBA (1998)
 * Current Issues
-  * Deploying new technology naively
-  * Violating location-based technologies
-  * RFID
-  * Moble
+  - Deploying new technology naively
+  - Violating location-based technologies
+  - RFID
+  - Moble
 
 #What's The Point?
 * Course evaluations
+* The cat is out-of-the-bag:
+  - I got hacked :-D
+  - How I created the forensics game.
+  - Your reward: quiz questions 13 and 14
+    - Low stress, whatever you put into it
+    - Please DO NOT write name on last two questions of quiz --they will be shared among everyone.
+* NEED A SCRIBE
 * Debate questions:
-  * Is it okay to strike back at attackers?
-  * Should tools like nmap, Metasploit, Tamper Data be outlawed?
-  * Should encryption be outlawed?
-  * Edward Snowden: sinner or saint?
-  * Should companies spend money on security awareness training for their employees?
-  * How long should ISP logs be retained for?
-  * True or false: Java is safer to use than C/C++
+  - Is it okay to strike back at attackers?
+  - Edward Snowden: sinner or saint?
+  - Self-driving cars and IoT: who is liable for accidents?
+  - Cyber security: nihilism or hope?
+  - Should encryption be regulated in any way?
 * Many topics we did not talk about this semester
-* We learned a little about a lot this semester. You know enough to be dangerous.
-* The morals of the story...
-* What's the ultimate point of this class?  Be a good citizen.  Understand tradeoffs.  Talk to those who are curious. Reach out to the non-tech.  Engage and encourage constructive debates.  We have done a lot of that this semester: see privacy discussion.  Stay informed.
-* A look back at 2004 when I first proposed a course on security, privacy, and politics
-* Looking ahead...
-* Your work is not done.
-
-#Future
-* Case study: crap login code
-* https://crackstation.net/hashing-security.htm
+* We learned a little about a lot this semester. You know enough to be dangerous.  But a broad knowledge is also very valuable to give you flexibility
+* A big thank you, of personal note
+* The teaching goals of this class
+  - Understand tradeoffs.  That includes badly designed software, PHP statements with SQL injection
+  - Be informed of the issues. Because most in CS just do not know them.
+  - Even consider security in software and in CS, very much like thinking about health and safety. http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/
+  - Simplicity is important, complexity is bad
+* The point of this class and the ultimate goal
+  - **Be a good citizen**
+  - Talk to those who are curious
+  - Reach out to the non-tech
+  - Engage and encourage constructive debates (why I asked those debate questions)
+  - We are now in a state of crisis
+  - The real hard problem: policy
+  - One year ago today: http://money.cnn.com/2015/12/08/technology/encryption-congress-commission/
+  - https://speakerdeck.com/chriseng/time-to-grow-up-counterproductive-security-behaviors-that-must-end
