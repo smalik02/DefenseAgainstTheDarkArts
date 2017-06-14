@@ -31,6 +31,6 @@ An interactive Python tutorial: https://www.learnpython.org/
 
 You must submit two files:
 
-1. Your Python program that ends in the extension .py
+1. Your Python program that ends in the extension `.py`
 
-2. A README about your program.  Identify what aspects of the work have been correctly implemented and what have not. Identify anyone with whom you have collaborated or discussed the assignment. Say approximately how many hours you have spent completing the lab.
+2. A `README` about your program.  Identify what aspects of the work have been correctly implemented and what have not. Identify anyone with whom you have collaborated or discussed the assignment. Say approximately how many hours you have spent completing the lab.

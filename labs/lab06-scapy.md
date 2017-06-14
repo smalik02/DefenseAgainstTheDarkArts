@@ -44,14 +44,14 @@ In Kali Linux and assuming you are root, run: python `alarm.py`. By default with
 
 Example 1: `python alarm.py -h` shall display something of the like:
 
-`usage: alarm.py [-h] [-i INTERFACE] [-r PCAPFILE]
+`usage: alarm.py [-h] [-i INTERFACE] [-r PCAPFILE]`
 
-A network sniffer that identifies basic vulnerabilities
+`A network sniffer that identifies basic vulnerabilities`
 
-optional arguments:
-  -h, --help    show this help message and exit
-  -i INTERFACE  Network interface to sniff on
-  -r PCAPFILE   A PCAP file to read`
+`optional arguments:`
+  `-h, --help    show this help message and exit`
+  `-i INTERFACE  Network interface to sniff on`
+  `-r PCAPFILE   A PCAP file to read`
 
 Example 2: `python alarm.py -r set2.pcap` will read the packets from `set2.pcap`
 
@@ -99,7 +99,7 @@ This assignment is worth 25 points.
 
 * (3 points) README
 * (2 points) Help interface
-* (4 points) Tool allows network sniffing --and by default on eth0
+* (4 points) Tool allows network sniffing --and by default on `eth0`
 * (4 points) Tool allows for reading in a PCAP file
 * (2 points) Tool displays alert(s)
 * (10 points) Detection of cleartext passwords, FIN scan, XMAS scan, NULL scan, Nikto scan

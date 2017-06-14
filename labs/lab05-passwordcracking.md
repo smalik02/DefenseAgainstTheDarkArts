@@ -4,7 +4,7 @@
 
 Download [crackme.txt](crackme.txt).  Using password cracker(s) of your choice, crack as many of the passwords that you can and answer the following:
 
-1. Your pot of passwords here. Submit your pot of passwords using username:password format for each password that you crack.
+1. Submit your pot of passwords using `username:password` format for each password that you crack.
 
 2. What hashing algorithms are used for the accounts?
 
