@@ -10,7 +10,7 @@ Throughout this course, you will be doing most of your work on a virtual machine
 
 2. Download a hypervisor software.  Two options:
 
-* VMware Fusion for Mac OS X or VMware Workstation for Windows or Linux: You can get a free one year license via Tufts CS at https://vmap-tufts.onthehub.com/WebStore/Welcome.aspx.
+* VMware Fusion for Mac OS X or VMware Workstation for Windows or Linux
 * VirtualBox: Free and open source
 
 While I use both, I prefer VMware Fusion for Mac OS X or VMware Workstation for Windows or Linux as VMware is commonly used by security practitioners and is well-known for its performance and features.  Please do not use VMware Player as you will not be able to create virtual machines.

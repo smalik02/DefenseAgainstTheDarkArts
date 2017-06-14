@@ -2,8 +2,8 @@
 
 ## Objectives
 
-* Be exposed to software testing techniques.
-* Learn and implement a fuzzer.
+1. Be exposed to software testing techniques.
+2. Learn and implement a fuzzer.
 
 ## Overview
 
