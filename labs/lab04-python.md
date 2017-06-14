@@ -7,7 +7,10 @@
 
 ## Overview
 
-Being proficient in programming is an invaluable skill to have as a cyber security practitioner.
+Being proficient in programming is an essential skill to have as a cyber security practitioner.
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">For me, it&#39;s more than invaluable, it&#39;s essential.</p>&mdash; Jeremiah Grossman (@jeremiahg) <a href="https://twitter.com/jeremiahg/status/875111993463644160">June 14, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 On October 7, 2016, the Department Of Homeland Security (DHS) and the Office of the Director of National Intelligence (DNI) issued a joint statement on election security compromises (https://www.dhs.gov/news/2016/10/07/joint-statement-department-homeland-security-and-office-director-national). DHS has released a Joint Analysis Report (JAR) attributing those compromises to Russian malicious cyber activity, designated as GRIZZLY STEPPE.
 
