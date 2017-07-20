@@ -102,4 +102,4 @@ This assignment is worth 25 points.
 * (4 points) Tool allows network sniffing --and by default on `eth0`
 * (4 points) Tool allows for reading in a PCAP file
 * (2 points) Tool displays alert(s)
-* (10 points) Detection of cleartext passwords, FIN scan, XMAS scan, NULL scan, Nikto scan
+* (10 points) Detection of cleartext passwords, FIN scan, XMAS scan, NULL scan
